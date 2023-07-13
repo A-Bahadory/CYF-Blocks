@@ -27,3 +27,30 @@ let new_li3 = document.createElement('li');
 new_li3.innerText = 'avocado';
 
 element_list.appendChild(new_li3);
+
+//n5
+let element_list = document.getElementById('list');
+let new_li = document.createElement('li');
+let new_a = document.createElement('a');
+new_a.setAttribute("href", 'https://bahador-home-town.netlify.app');
+new_a.innerText = 'my -webepage';
+
+new_li.appendChild(new_a);
+
+element_list.appendChild(new_li);
+let new_li2 = document.createElement('li');
+let new_a2 = document.createElement('a');
+new_a2.setAttribute("href", 'https://www.dr-mikes-math-games-for-kids.com/online-traffic-jam-game.html');
+new_a2.innerText = 'game-linke';
+
+new_li2.appendChild(new_a2);
+
+element_list.appendChild(new_li2);
+let new_li3 = document.createElement('li');
+let new_a3 = document.createElement('a');
+new_a3.setAttribute("href", 'https://www.youtube.com/live/MxrFZJcGo08?feature=share');
+new_a3.innerText = 'github-youtube-community';
+
+new_li3.appendChild(new_a3);
+
+element_list.appendChild(new_li3);
