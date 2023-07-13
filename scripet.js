@@ -180,5 +180,24 @@ document.getElementById('book').addEventListener('click', (event) => {
   event.target.setAttribute("src", 'https://blob.sololearn.com/avatars/75aeefa4-d611-4799-b2a5-6ba8f06fac7e.jpg');
 
 });
+//n10
+var click_count, count_click;
 
+
+count_click = (typeof count_click === 'number' ? count_click : 0) + 0;
+
+
+document.getElementById('count_click').addEventListener('click', (event) => {
+  count_click = (typeof count_click === 'number' ? count_click : 0) + 1;
+  event.target.innerText = count_click;
+
+});
+click_count = 0;
+
+
+document.getElementById('click_count').addEventListener('click', (event) => {
+  click_count = (typeof click_count === 'number' ? click_count : 0) + 1;
+  event.target.innerText = click_count;
+
+});
 
