@@ -201,3 +201,24 @@ document.getElementById('click_count').addEventListener('click', (event) => {
 
 });
 
+//11
+var animal, coluor;
+
+function randomInt(n) {
+  // Return a random number from in [0, n[
+  return Math.floor(Math.random()*n);
+}
+
+function randomMember(arr) {
+  // Return a random member of the array
+  return arr[randomInt(arr.length)]
+}
+
+
+animal = ['cat', 'sheep', 'dog'];
+let element_animal = document.getElementById('animal');
+element_animal.innerText = randomMember(animal);
+
+coluor = ['white', 'yellow', 'blue'];
+let element_line = document.getElementById('line');
+element_line.innerText = randomMember(coluor);
