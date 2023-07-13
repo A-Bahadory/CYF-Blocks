@@ -54,3 +54,33 @@ new_a3.innerText = 'github-youtube-community';
 new_li3.appendChild(new_a3);
 
 element_list.appendChild(new_li3);
+//n6
+document.getElementById('button').addEventListener('click', (event) => {
+  let element_list = document.getElementById('list');
+  let new_li = document.createElement('li');
+  new_li.innerText = 'Apple';
+
+  element_list.appendChild(new_li);
+
+});
+
+document.getElementById('new-').addEventListener('click', (event) => {
+  let element_list2 = document.getElementById('list');
+  element_list2.replaceChildren();
+
+});
+
+document.getElementById('add').addEventListener('click', (event) => {
+  let element_add_items = document.getElementById('add_items');
+  let new_li2 = document.createElement('li');
+  new_li2.innerText = 'items added';
+
+  element_add_items.appendChild(new_li2);
+
+});
+
+document.getElementById('remove').addEventListener('click', (event) => {
+  let element_add_items2 = document.getElementById('add_items');
+  element_add_items2.replaceChildren();
+
+});
