@@ -222,3 +222,371 @@ element_animal.innerText = randomMember(animal);
 coluor = ['white', 'yellow', 'blue'];
 let element_line = document.getElementById('line');
 element_line.innerText = randomMember(coluor);
+
+//12
+var animal, coluor;
+
+function randomInt(n) {
+  // Return a random number from in [0, n[
+  return Math.floor(Math.random()*n);
+}
+
+function randomMember(arr) {
+  // Return a random member of the array
+  return arr[randomInt(arr.length)]
+}
+
+
+animal = ['cat', 'sheep', 'dog'];
+let element_animal = document.getElementById('animal');
+element_animal.innerText = randomMember(animal);
+
+coluor = ['white', 'yellow', 'blue'];
+let element_line = document.getElementById('line');
+element_line.innerText = randomMember(coluor);
+
+//13
+var fruits, item;
+
+
+fruits = ['apple', 'banana', 'mango', 'cat'];
+let element_list = document.getElementById('list');
+fruits.forEach((item) => {
+  let new_li = document.createElement('li');
+  new_li.innerText = item;
+
+  element_list.appendChild(new_li);
+});
+
+item = ['clouths', 'tent', 'bouts'];
+let element_items = document.getElementById('items');
+item.forEach((item) => {
+  let new_li2 = document.createElement('li');
+  new_li2.innerText = item;
+
+  element_items.appendChild(new_li2);
+});
+
+//n14
+var fruits;
+
+
+fruits = ['Banana', 'Avocado', 'Strawberry'];
+
+
+document.getElementById('button').addEventListener('click', (event) => {
+  let element_list = document.getElementById('list');
+  if (!!fruits.length) {
+    let new_li = document.createElement('li');
+    new_li.innerText = fruits.shift();
+
+    element_list.appendChild(new_li);
+  }
+
+});
+//n15
+var fruits, emoji;
+
+
+fruits = ['banana', 'apple', 'avocado'];
+emoji = ['🍌', '🍏', '🥑'];
+let element_list = document.getElementById('list');
+while (!!fruits.length) {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  let new_li = document.createElement('li');
+  new_li.innerText = fruits.shift();
+  let new_span = document.createElement('span');
+  new_span.innerText = emoji.shift();
+
+  new_li.appendChild(new_span);
+
+  element_list.appendChild(new_li);
+}
+
+//n15
+var number;
+
+function convertToNumber(value) {
+  // Convert a string value to a number if possible
+  let number_value = Number(value);
+  if (Number.isNaN(number_value)) {
+    return 0
+  } else {
+    return number_value
+  }
+}
+
+
+number = [0, 0, 0, 0, 0];
+let element_total = document.getElementById('total');
+element_total.innerText = number.reduce((a,b) => a+b, 0);
+
+
+document.getElementById('add_number').addEventListener('click', (event) => {
+  let element_total2 = document.getElementById('total');
+  number.shift();
+  number.push(convertToNumber(document.getElementById('number').value));
+  element_total2.innerText = number.reduce((a,b) => a+b, 0);
+
+});
+//17
+var rolls, dice, role_totle;
+
+// Describe this function...
+function roll_total() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  return rolls.reduce((a,b) => a+b, 0);
+}
+
+function randomInt(n) {
+  // Return a random number from in [0, n[
+  return Math.floor(Math.random()*n);
+}
+
+function randomMember(arr) {
+  // Return a random member of the array
+  return arr[randomInt(arr.length)]
+}
+
+// Describe this function...
+function diplay_the_dice() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  rolls.push(randomMember(dice));
+  let element_list3 = document.getElementById('list');
+  element_list3.replaceChildren();
+  rolls.forEach((rolls) => {
+    let element_list4 = document.getElementById('list');
+    let new_li = document.createElement('li');
+    new_li.innerText = rolls;
+
+    element_list4.appendChild(new_li);
+  });
+  let element_total2 = document.getElementById('total');
+  element_total2.innerText = rolls.reduce((a,b) => a+b, 0);
+  if (roll_total() == 11) {
+    let element_info = document.getElementById('info');
+    element_info.innerText = 'you won!';
+  } else if (roll_total() > 11) {
+    let element_info2 = document.getElementById('info');
+    element_info2.innerText = 'you lose!';
+  } else {
+    let element_info3 = document.getElementById('info');
+    element_info3.innerText = 'keep playing!';
+  }
+}
+
+
+rolls = [];
+dice = [1, 2, 3, 4, 5, 6];
+role_totle = dice.reduce((a,b) => a+b, 0);
+
+
+document.getElementById('button_restart').addEventListener('click', (event) => {
+  rolls = [];
+  let element_list = document.getElementById('list');
+  element_list.replaceChildren();
+  let element_total = document.getElementById('total');
+  element_total.innerText = 0;
+  let element_list2 = document.getElementById('list');
+  element_list2.replaceChildren();
+
+});
+
+document.getElementById('button_roll').addEventListener('click', (event) => {
+  diplay_the_dice();
+
+});
+
+document.getElementById('button_remove').addEventListener('click', (event) => {
+  rolls.pop();
+  let element_list5 = document.getElementById('list');
+  element_list5.replaceChildren();
+  rolls.forEach((rolls) => {
+    let element_list6 = document.getElementById('list');
+    let new_li2 = document.createElement('li');
+    new_li2.innerText = rolls;
+
+    element_list6.appendChild(new_li2);
+  });
+  if (roll_total() == 11) {
+    let element_info4 = document.getElementById('info');
+    element_info4.innerText = 'you won!';
+  } else if (roll_total() > 11) {
+    let element_info5 = document.getElementById('info');
+    element_info5.innerText = 'you lose!';
+  } else {
+    let element_info6 = document.getElementById('info');
+    element_info6.innerText = 'keep playing!';
+  }
+  let element_total3 = document.getElementById('total');
+  element_total3.innerText = rolls.reduce((a,b) => a+b, 0);
+
+});
+//18
+var input;
+
+function convertToNumber(value) {
+  // Convert a string value to a number if possible
+  let number_value = Number(value);
+  if (Number.isNaN(number_value)) {
+    return 0
+  } else {
+    return number_value
+  }
+}
+
+function randomInt(n) {
+  // Return a random number from in [0, n[
+  return Math.floor(Math.random()*n);
+}
+
+function randomMember(arr) {
+  // Return a random member of the array
+  return arr[randomInt(arr.length)]
+}
+
+
+input = [];
+
+
+document.getElementById('facilitator').addEventListener('click', (event) => {
+  input.unshift(document.getElementById('text').value);
+  let element_list_sum = document.getElementById('list_sum');
+  let new_li = document.createElement('li');
+  new_li.innerText = document.getElementById('text').value;
+
+  element_list_sum.appendChild(new_li);
+
+});
+
+document.getElementById('show_random').addEventListener('click', (event) => {
+  let element_amount = document.getElementById('amount');
+  element_amount.innerText = randomMember(input);
+
+});
+
+//19
+var balance, zero, earning, expences;
+
+function convertToNumber(value) {
+  // Convert a string value to a number if possible
+  let number_value = Number(value);
+  if (Number.isNaN(number_value)) {
+    return 0
+  } else {
+    return number_value
+  }
+}
+
+// Describe this function...
+function show_earning() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  zero = 0;
+  if (convertToNumber(document.getElementById('input').value) > zero) {
+    earning.unshift(convertToNumber(document.getElementById('input').value));
+    let element_earning = document.getElementById('earning');
+    let new_li = document.createElement('li');
+    new_li.innerText = convertToNumber(document.getElementById('input').value);
+
+    element_earning.appendChild(new_li);
+    let element_earning_span = document.getElementById('earning_span');
+    element_earning_span.innerText = earning.reduce((a,b) => a+b, 0);
+  } else if (convertToNumber(document.getElementById('input').value) <= zero) {
+    expences.unshift(convertToNumber(document.getElementById('input').value));
+    let element_spend = document.getElementById('spend');
+    let new_li2 = document.createElement('li');
+    new_li2.innerText = convertToNumber(document.getElementById('input').value);
+
+    element_spend.appendChild(new_li2);
+    let element_expence_span = document.getElementById('expence_span');
+    element_expence_span.innerText = expences.reduce((a,b) => a+b, 0);
+  }
+}
+
+// Describe this function...
+function balane() {
+  if(--window.LoopTrap <= 0) throw "Infinite loop.";
+  balance.unshift(convertToNumber(document.getElementById('input').value));
+  return balance.reduce((a,b) => a+b, 0);
+}
+
+
+balance = [];
+earning = [];
+expences = [];
+
+
+document.getElementById('button1').addEventListener('click', (event) => {
+  show_earning();
+  let element_balance_span = document.getElementById('balance_span');
+  element_balance_span.innerText = balane();
+
+});
+
+//n20
+var links, link;
+
+
+links = ['https://bahador-home-town.netlify.app', 'https://codeyourfuture.io/', 'www.google.com'];
+let element_link_list = document.getElementById('link_list');
+links.forEach((link) => {
+  let new_li = document.createElement('li');
+  let new_a = document.createElement('a');
+  new_a.innerText = link;
+  new_a.setAttribute("href", link);
+
+  new_li.appendChild(new_a);
+
+  element_link_list.appendChild(new_li);
+});
+
+//21
+document.getElementById('img').addEventListener('click', (event) => {
+  let element_info = document.getElementById('info');
+  element_info.replaceChildren();
+  let element_pic = document.getElementById('pic');
+  element_pic.replaceChildren();
+  let element_para_2 = document.getElementById('para_2');
+  element_para_2.innerText = 'Once upon a time in the digital realm, there lived a programming language named JavaScript. It was a versatile and dynamic language, known for its ability to breathe life into static websites.  In a small town called Webville, JavaScript was the heart and soul of the community. Every website and application relied on its magic to enchant users with interactive features and captivating animations.';
+  let element_page_2_button = document.getElementById('page_2_button');
+  let new_button = document.createElement('button');
+  new_button.innerText = 'page two -->';
+
+  element_page_2_button.appendChild(new_button);
+
+});
+
+document.getElementById('page_2_button').addEventListener('click', (event) => {
+  let element_para_3 = document.getElementById('para_3');
+  element_para_3.innerText = 'One sunny day, a young developer named Lily discovered the power of JavaScript. With a gleam in her eye, she set out to create her own masterpiece. Armed with her keyboard and an imagination brimming with possibilities, she began coding a web-based game.  Through sleepless nights and countless cups of coffee, Lily wove lines of JavaScript, shaping her game into a work of art. As she added functionality and interactivity, her creation came alive, captivating players with its immersive experience.';
+  let element_pic2 = document.getElementById('pic');
+  element_pic2.replaceChildren();
+  let element_para_22 = document.getElementById('para_2');
+  element_para_22.replaceChildren();
+  let element_info2 = document.getElementById('info');
+  element_info2.replaceChildren();
+  let element_page_2_button2 = document.getElementById('page_2_button');
+  element_page_2_button2.replaceChildren();
+
+});
+
+//22
+var links;
+
+
+links = ['https://images.unsplash.com/photo-1604675223954-b1aabd668078?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60', 'https://images.unsplash.com/photo-1608032364895-0da67af36cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60', 'https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60'];
+
+
+document.getElementById('next').addEventListener('click', (event) => {
+  let element_picture = document.getElementById('picture');
+  links.push(links[0]);
+  element_picture.setAttribute("src", links.shift());
+
+});
+
+document.getElementById('previous').addEventListener('click', (event) => {
+  let element_picture2 = document.getElementById('picture');
+  links.unshift(links.slice(-1)[0]);
+  element_picture2.setAttribute("src", links.pop());
+
+});
